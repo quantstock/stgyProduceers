@@ -95,7 +95,7 @@ if __name__ == '__main__':
     endTime = datetime.datetime(2019, 8, 6)
     chips_df = data.get_dailyChips(stockId, startTime, endTime)
     chips_df = chips_df[["投信買賣超股數"]].dropna()
-    days = 5
+    days = 4
 
     def parse_foreign(x, days):
         if x == days:
