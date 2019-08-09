@@ -97,7 +97,7 @@ if __name__ == '__main__':
     chips_df = chips_df[["投信買賣超股數"]].dropna()
     days = 4
 
-    def parse_foreign(x, days):
+    def 跟單策略(x, days):
         if x == days:
             return -1
         elif x == -days:
@@ -106,7 +106,7 @@ if __name__ == '__main__':
             return 0
 
     def signalGnr_contBuyOrSell(days, df, column_name):
-        df["signal"] = df[column_name].apply(np.sign).rolling(days).sum().apply(parse_foreign, days=days).shift(1)
+        df["signal"] = df[column_name].apply(np.sign).rolling(days).sum().apply(跟單策略, days=days).shift(1)
         return df[["signal"]]
 
     signal_df = signalGnr_contBuyOrSell(days=3, df=chips_df, column_name='投信買賣超股數')
